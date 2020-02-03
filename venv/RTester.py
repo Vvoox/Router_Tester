@@ -12,7 +12,10 @@ from selenium.webdriver.chrome.options import Options
 from pyvirtualdisplay import Display
 import hashlib
 
+display = Display(visible=0, size=(800, 800))
+display.start()
 webdriver1 = webdriver.Chrome()
+
 
 def start():
     url = "http://192.168.1.1/rpSys.html"
@@ -26,6 +29,7 @@ def start():
     # webdriver1= webdriver.Chrome(options=chrome_options)
     # self.driver.minimize_window()
     # webdriver1= webdriver.Chrome(options=chrome_options)
+
     webdriver1.get(url)
     print("Open the url ...")
     login = "admin"
@@ -34,7 +38,7 @@ def start():
 
     loginMD5 = hashlib.md5(login.encode()).hexdigest()
 
-    file = open('passwordlist.txt', 'r')
+    file = open('khalil.txt', 'r')
     Lines = file.readlines()
 
     count = 0
@@ -95,7 +99,6 @@ def add_cookies(loginMD5, passwordMD5):
     webdriver1.refresh()
     webdriver1.get("http://192.168.1.1/rpSys.html")
 
-    sleep(2)
     # print(webdriver1.get_cookies())
     return webdriver1.current_url
 
