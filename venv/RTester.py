@@ -38,7 +38,7 @@ def start():
 
     loginMD5 = hashlib.md5(login.encode()).hexdigest()
 
-    file = open('khalil.txt', 'r')
+    file = open('Passwords.txt', 'r')
     Lines = file.readlines()
 
     count = 0
